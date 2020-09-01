@@ -1,0 +1,20 @@
+C:\Users\pc-1793\Desktop\DSITP1\bin\Debug\netcoreapp2.0\DSITP1.deps.json
+C:\Users\pc-1793\Desktop\DSITP1\bin\Debug\netcoreapp2.0\DSITP1.runtimeconfig.json
+C:\Users\pc-1793\Desktop\DSITP1\bin\Debug\netcoreapp2.0\DSITP1.runtimeconfig.dev.json
+C:\Users\pc-1793\Desktop\DSITP1\bin\Debug\netcoreapp2.0\DSITP1.dll
+C:\Users\pc-1793\Desktop\DSITP1\bin\Debug\netcoreapp2.0\DSITP1.pdb
+C:\Users\pc-1793\Desktop\DSITP1\obj\Debug\netcoreapp2.0\DSITP1.csproj.CoreCompileInputs.cache
+C:\Users\pc-1793\Desktop\DSITP1\obj\Debug\netcoreapp2.0\DSITP1.AssemblyInfoInputs.cache
+C:\Users\pc-1793\Desktop\DSITP1\obj\Debug\netcoreapp2.0\DSITP1.AssemblyInfo.cs
+C:\Users\pc-1793\Desktop\DSITP1\obj\Debug\netcoreapp2.0\DSITP1.dll
+C:\Users\pc-1793\Desktop\DSITP1\obj\Debug\netcoreapp2.0\DSITP1.pdb
+E:\Mis Documentos\DSITP1\obj\Debug\netcoreapp2.0\DSITP1.csproj.CoreCompileInputs.cache
+E:\Mis Documentos\DSITP1\obj\Debug\netcoreapp2.0\DSITP1.AssemblyInfoInputs.cache
+E:\Mis Documentos\DSITP1\obj\Debug\netcoreapp2.0\DSITP1.AssemblyInfo.cs
+E:\Mis Documentos\DSITP1\obj\Debug\netcoreapp2.0\DSITP1.dll
+E:\Mis Documentos\DSITP1\obj\Debug\netcoreapp2.0\DSITP1.pdb
+E:\Mis Documentos\DSITP1\bin\Debug\netcoreapp2.0\DSITP1.deps.json
+E:\Mis Documentos\DSITP1\bin\Debug\netcoreapp2.0\DSITP1.runtimeconfig.json
+E:\Mis Documentos\DSITP1\bin\Debug\netcoreapp2.0\DSITP1.runtimeconfig.dev.json
+E:\Mis Documentos\DSITP1\bin\Debug\netcoreapp2.0\DSITP1.dll
+E:\Mis Documentos\DSITP1\bin\Debug\netcoreapp2.0\DSITP1.pdb
