@@ -1,0 +1,30 @@
+[
+  {
+    "IdProducto": "a0d9d990-8c29-4092-a7a4-c82df51ba4ad",
+    "Nombre": "aaaaaaaaaa",
+    "Marca": "aaaaaaaaaa",
+    "Precio": 22.0,
+    "Descripcion": "ffffffffffffff",
+    "Stock": 22,
+    "Imagen": "sssssssssss",
+    "TipoProducto": {
+      "IdTipoProducto": 0,
+      "Nombre": "aaaaaaaaaaa",
+      "Categoria": null
+    }
+  },
+  {
+    "IdProducto": "d95eb520-5633-4472-8fc4-0e808ab2f7fe",
+    "Nombre": "ttttttttt",
+    "Marca": "aaaaaaaaaa",
+    "Precio": 99.0,
+    "Descripcion": "dddddddddd",
+    "Stock": 99,
+    "Imagen": "qq",
+    "TipoProducto": {
+      "IdTipoProducto": 0,
+      "Nombre": "aaaaaaaaaaa",
+      "Categoria": null
+    }
+  }
+]
