@@ -64,10 +64,6 @@ namespace WindowsFormsApp1
             MessageBoxButtons buttons = MessageBoxButtons.OK;
             DialogResult result;
             result = MessageBox.Show(message, caption, buttons);
-            /*if (result == System.Windows.Forms.DialogResult.OK)
-            {
-                this.Close();
-            }*/
 
         }
 
@@ -79,8 +75,9 @@ namespace WindowsFormsApp1
 
         public void EnvioDatosACarrito()
         {
+            RegistroProducto.CargarRegistroProducto();
             var productosAVender = new List<Producto>();
-            var productosARecorrer = RegistroProducto.productos.Where(x => x.IdProducto == RegistroProducto.productoCargado.IdProducto).ToList();
+            var productosARecorrer = RegistroProducto.productos.ToList();
 
             foreach (var productos in productosARecorrer)
             {
@@ -104,10 +101,6 @@ namespace WindowsFormsApp1
             MessageBoxButtons buttons = MessageBoxButtons.OK;
             DialogResult result;
             result = MessageBox.Show(message, caption, buttons);
-            /*if (result == System.Windows.Forms.DialogResult.OK)
-            {
-                this.Close();
-            }*/
         }
 
         public void buttonAtras_Click(object sender, EventArgs e)

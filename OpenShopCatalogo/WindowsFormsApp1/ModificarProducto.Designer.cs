@@ -51,9 +51,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(64, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 20);
+            this.label1.Size = new System.Drawing.Size(247, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Elija el producto a modificar:";
+            this.label1.Text = "Elija el id del producto a modificar:";
             // 
             // textBoxStock
             // 
@@ -106,6 +106,7 @@
             this.dataGridViewProductos.RowTemplate.Height = 28;
             this.dataGridViewProductos.Size = new System.Drawing.Size(580, 228);
             this.dataGridViewProductos.TabIndex = 7;
+            this.dataGridViewProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProductos_CellContentClick);
             // 
             // errorProviderStock
             // 

@@ -39,7 +39,6 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    buttonRegistrar.Enabled = true;
                     errorProviderUsuario.SetError(textBoxUsuario, "");
                 }
 
@@ -65,7 +64,6 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    buttonRegistrar.Enabled = true;
                     errorProviderContraseña.SetError(textBoxContraseña, "");
                 }
             }

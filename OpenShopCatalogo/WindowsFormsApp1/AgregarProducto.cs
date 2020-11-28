@@ -25,9 +25,23 @@ namespace WindowsFormsApp1
         {
             var marcas = RegistroProducto.productos.Select(x => x.Marca).Distinct();
             comboBoxMarca.DataSource = marcas.ToArray();
+            comboBoxMarca.SelectedItem = null;
 
             var tipoProductos = RegistroProducto.productos.Select(x => x.TipoProducto.Nombre).Distinct();
             comboBoxTipoProducto.DataSource = tipoProductos.ToArray();
+            comboBoxTipoProducto.SelectedItem = null;
+
+        }
+
+        public void HabilitarBoton()
+        {
+            if ((string.IsNullOrWhiteSpace(textBoxNombre.Text)) || (string.IsNullOrWhiteSpace(comboBoxMarca.Text)) ||
+                 (string.IsNullOrWhiteSpace(textBoxPrecio.Text))|| (string.IsNullOrWhiteSpace(textBoxDescripcion.Text)) ||
+                 (string.IsNullOrWhiteSpace(textBoxStock.Text)) || (string.IsNullOrWhiteSpace(comboBoxTipoProducto.Text)))
+            {
+                buttonAgregar.Enabled = false;
+            }
+            else buttonAgregar.Enabled = true;
 
         }
 
@@ -50,29 +64,50 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    buttonAgregar.Enabled = true;
+                    HabilitarBoton();
                     errorProviderNombre.SetError(textBoxNombre, "");
                 }
             }
         }
-
-        /*public void TextBoxMarca_TextChanged(object sender, EventArgs e)
+        private void comboBoxMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            controlarTextoIngresadoMarca();
-        }
-        public void controlarTextoIngresadoMarca()
-        {
-            buttonAgregar.Enabled = false;
-            if (string.IsNullOrWhiteSpace(textBoxMarca.Text))
+            if (string.IsNullOrWhiteSpace(textBoxNombre.Text))
             {
-                errorProviderMarca.SetError(textBoxMarca, "Debe introducir la marca");
+                errorProviderNombre.SetError(textBoxNombre, "Debe introducir el nombre del producto");
             }
             else
             {
-                buttonAgregar.Enabled = true;
-                errorProviderMarca.SetError(textBoxMarca, "");
+                if (string.IsNullOrWhiteSpace(comboBoxMarca.Text))
+                {
+                    errorProviderMarca.SetError(comboBoxMarca, "Debe introducir la marca");
+                }
+                else
+                {
+                    HabilitarBoton();
+                    errorProviderMarca.SetError(comboBoxMarca, "");
+                }
             }
-        }*/
+
+        }
+        private void comboBoxMarca_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBoxNombre.Text))
+            {
+                errorProviderNombre.SetError(textBoxNombre, "Debe introducir el nombre del producto");
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(comboBoxMarca.Text))
+                {
+                    errorProviderMarca.SetError(comboBoxMarca, "Debe introducir la marca");
+                }
+                else
+                {
+                    HabilitarBoton();
+                    errorProviderMarca.SetError(comboBoxMarca, "");
+                }
+            }
+        }
 
         public void TextBoxPrecio_TextChanged(object sender, EventArgs e)
         {
@@ -81,24 +116,36 @@ namespace WindowsFormsApp1
         public void controlarTextoIngresadoPrecio()
         {
             buttonAgregar.Enabled = false;
-            if (string.IsNullOrWhiteSpace(textBoxPrecio.Text))
+            if (string.IsNullOrWhiteSpace(textBoxNombre.Text))
             {
-                errorProviderPrecio.SetError(textBoxPrecio, "Debe introducir el precio");
+                errorProviderNombre.SetError(textBoxNombre, "Debe introducir el nombre del producto");
+            }
+            if (string.IsNullOrWhiteSpace(comboBoxMarca.Text))
+            {
+                errorProviderMarca.SetError(comboBoxMarca, "Debe introducir la marca");
             }
             else
             {
-                float precioIngresado;
-                bool esPrecio = float.TryParse(textBoxPrecio.Text.Trim(), out precioIngresado);
-                if (esPrecio == false)
+                if (string.IsNullOrWhiteSpace(textBoxPrecio.Text))
                 {
-                    errorProviderPrecio.SetError(textBoxPrecio, "Deben ser sólo numeros");
+                    errorProviderPrecio.SetError(textBoxPrecio, "Debe introducir el precio");
                 }
                 else
                 {
-                    buttonAgregar.Enabled = true;
-                    errorProviderPrecio.SetError(textBoxPrecio, "");
+                    float precioIngresado;
+                    bool esPrecio = float.TryParse(textBoxPrecio.Text.Trim(), out precioIngresado);
+                    if (esPrecio == false)
+                    {
+                        errorProviderPrecio.SetError(textBoxPrecio, "Deben ser sólo numeros");
+                    }
+                    else
+                    {
+                        HabilitarBoton();
+                        errorProviderPrecio.SetError(textBoxPrecio, "");
+                    }
                 }
             }
+            
         }
 
         public void TextBoxDescripcion_TextChanged(object sender, EventArgs e)
@@ -108,13 +155,25 @@ namespace WindowsFormsApp1
         public void controlarTextoIngresadoDescripcion()
         {
             buttonAgregar.Enabled = false;
+            if (string.IsNullOrWhiteSpace(textBoxNombre.Text))
+            {
+                errorProviderNombre.SetError(textBoxNombre, "Debe introducir el nombre del producto");
+            }
+            if (string.IsNullOrWhiteSpace(comboBoxMarca.Text))
+            {
+                errorProviderMarca.SetError(comboBoxMarca, "Debe introducir la marca");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxPrecio.Text))
+            {
+                errorProviderPrecio.SetError(textBoxPrecio, "Debe introducir el precio");
+            }
             if (string.IsNullOrWhiteSpace(textBoxDescripcion.Text))
             {
                 errorProviderDescripcion.SetError(textBoxDescripcion, "Debe introducir una descripción");
             }
             else
             {
-                buttonAgregar.Enabled = true;
+                HabilitarBoton();
                 errorProviderDescripcion.SetError(textBoxDescripcion, "");
             }
         }
@@ -126,6 +185,22 @@ namespace WindowsFormsApp1
         public void controlarTextoIngresadoStock()
         {
             buttonAgregar.Enabled = false;
+            if (string.IsNullOrWhiteSpace(textBoxNombre.Text))
+            {
+                errorProviderNombre.SetError(textBoxNombre, "Debe introducir el nombre del producto");
+            }
+            if (string.IsNullOrWhiteSpace(comboBoxMarca.Text))
+            {
+                errorProviderMarca.SetError(comboBoxMarca, "Debe introducir la marca");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxPrecio.Text))
+            {
+                errorProviderPrecio.SetError(textBoxPrecio, "Debe introducir el precio");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxDescripcion.Text))
+            {
+                errorProviderDescripcion.SetError(textBoxDescripcion, "Debe introducir una descripción");
+            }
             if (string.IsNullOrWhiteSpace(textBoxStock.Text))
             {
                 errorProviderStock.SetError(textBoxStock, "Debe introducir el Stock");
@@ -140,7 +215,7 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    buttonAgregar.Enabled = true;
+                    HabilitarBoton();
                     errorProviderStock.SetError(textBoxStock, "");
                 }
                 
@@ -154,52 +229,114 @@ namespace WindowsFormsApp1
         public void controlarTextoIngresadoImagen()
         {
             buttonAgregar.Enabled = false;
+            if (string.IsNullOrWhiteSpace(textBoxNombre.Text))
+            {
+                errorProviderNombre.SetError(textBoxNombre, "Debe introducir el nombre del producto");
+            }
+            if (string.IsNullOrWhiteSpace(comboBoxMarca.Text))
+            {
+                errorProviderMarca.SetError(comboBoxMarca, "Debe introducir la marca");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxPrecio.Text))
+            {
+                errorProviderPrecio.SetError(textBoxPrecio, "Debe introducir el precio");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxDescripcion.Text))
+            {
+                errorProviderDescripcion.SetError(textBoxDescripcion, "Debe introducir una descripción");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxStock.Text))
+            {
+                errorProviderStock.SetError(textBoxStock, "Debe introducir el Stock");
+            }
             if (string.IsNullOrWhiteSpace(textBoxImagen.Text))
             {
                 errorProviderImagen.SetError(textBoxImagen, "Debe ingresar una url para su imagen");
             }
             else
             {
-                buttonAgregar.Enabled = true;
+                HabilitarBoton();
                 errorProviderImagen.SetError(textBoxImagen, "");
             }
         }
 
-        /*public void TextBoxNombreCategoria_TextChanged(object sender, EventArgs e)
-        {
-            controlarTextoIngresadoNombreCategoria();
-        }
-        public void controlarTextoIngresadoNombreCategoria()
+
+
+        private void comboBoxTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
             buttonAgregar.Enabled = false;
-            if (string.IsNullOrWhiteSpace(textBoxNombreCategoria.Text))
+            if (string.IsNullOrWhiteSpace(textBoxNombre.Text))
             {
-                errorProviderNombreCategoria.SetError(textBoxNombreCategoria, "Debe introducir la categoría");
+                errorProviderNombre.SetError(textBoxNombre, "Debe introducir el nombre del producto");
+            }
+            if (string.IsNullOrWhiteSpace(comboBoxMarca.Text))
+            {
+                errorProviderMarca.SetError(comboBoxMarca, "Debe introducir la marca");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxPrecio.Text))
+            {
+                errorProviderPrecio.SetError(textBoxPrecio, "Debe introducir el precio");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxDescripcion.Text))
+            {
+                errorProviderDescripcion.SetError(textBoxDescripcion, "Debe introducir una descripción");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxStock.Text))
+            {
+                errorProviderStock.SetError(textBoxStock, "Debe introducir el Stock");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxImagen.Text))
+            {
+                errorProviderImagen.SetError(textBoxImagen, "Debe ingresar una url para su imagen");
+            }
+            if (string.IsNullOrWhiteSpace(comboBoxTipoProducto.Text))
+            {
+                errorProviderMarca.SetError(comboBoxTipoProducto, "Debe introducir el Tipo de producto");
             }
             else
-            {  
-                buttonAgregar.Enabled = true;
-                errorProviderNombreCategoria.SetError(textBoxNombreCategoria, "");
+            {
+                HabilitarBoton();
+                errorProviderImagen.SetError(comboBoxTipoProducto, "");
             }
         }
 
-        public void TextBoxTipoProducto_TextChanged(object sender, EventArgs e)
-        {
-            controlarTextoIngresadoTipoProducto();
-        }
-        public void controlarTextoIngresadoTipoProducto()
+        private void comboBoxTipoProducto_TextChanged(object sender, EventArgs e)
         {
             buttonAgregar.Enabled = false;
-            if (string.IsNullOrWhiteSpace(textBoxTipoProducto.Text))
+            if (string.IsNullOrWhiteSpace(textBoxNombre.Text))
             {
-                errorProviderTipoProducto.SetError(textBoxTipoProducto, "Debe introducir el tipo de producto");
+                errorProviderNombre.SetError(textBoxNombre, "Debe introducir el nombre del producto");
+            }
+            if (string.IsNullOrWhiteSpace(comboBoxMarca.Text))
+            {
+                errorProviderMarca.SetError(comboBoxMarca, "Debe introducir la marca");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxPrecio.Text))
+            {
+                errorProviderPrecio.SetError(textBoxPrecio, "Debe introducir el precio");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxDescripcion.Text))
+            {
+                errorProviderDescripcion.SetError(textBoxDescripcion, "Debe introducir una descripción");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxStock.Text))
+            {
+                errorProviderStock.SetError(textBoxStock, "Debe introducir el Stock");
+            }
+            if (string.IsNullOrWhiteSpace(textBoxImagen.Text))
+            {
+                errorProviderImagen.SetError(textBoxImagen, "Debe ingresar una url para su imagen");
+            }
+            if (string.IsNullOrWhiteSpace(comboBoxTipoProducto.Text))
+            {
+                errorProviderMarca.SetError(comboBoxTipoProducto, "Debe introducir el Tipo de producto");
             }
             else
             {
-                buttonAgregar.Enabled = true;
-                errorProviderTipoProducto.SetError(textBoxTipoProducto, "");
+                HabilitarBoton();
+                errorProviderImagen.SetError(comboBoxTipoProducto, "");
             }
-        }*/
+        }
 
         public void buttonAgregar_Click(object sender, EventArgs e)
         {
@@ -240,7 +377,7 @@ namespace WindowsFormsApp1
         {
             this.Close();
         }
-
+        
     }
 
 
@@ -249,7 +386,7 @@ namespace WindowsFormsApp1
         public static List<Producto> productos = new List<Producto>();
         public static Producto productoCargado;
 
-        static RegistroProducto()
+        public static void CargarRegistroProducto()
         {
             if (System.IO.File.Exists("productos.json"))
             {

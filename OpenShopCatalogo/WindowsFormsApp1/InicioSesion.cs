@@ -44,7 +44,6 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    buttonIniciarSesion.Enabled = true;
                     errorProviderUsuario.SetError(textBoxUsuario, "");
                 }
             }

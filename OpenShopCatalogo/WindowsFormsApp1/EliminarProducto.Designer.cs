@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridViewProductos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonAtras = new System.Windows.Forms.Button();
+            this.errorProviderProducto = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderProducto)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewProductos
@@ -73,6 +76,10 @@
             this.buttonAtras.UseVisualStyleBackColor = true;
             this.buttonAtras.Click += new System.EventHandler(this.buttonAtras_Click);
             // 
+            // errorProviderProducto
+            // 
+            this.errorProviderProducto.ContainerControl = this;
+            // 
             // EliminarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -85,6 +92,7 @@
             this.Name = "EliminarProducto";
             this.Text = "EliminarProducto";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderProducto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,5 +104,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonEliminar;
         private System.Windows.Forms.Button buttonAtras;
+        private System.Windows.Forms.ErrorProvider errorProviderProducto;
     }
 }

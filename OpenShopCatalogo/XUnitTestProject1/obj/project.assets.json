@@ -5875,11 +5875,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Anto\\Desktop\\Tercer año\\Diseño de Sistemas\\MI_PROYECTO\\OpenShopCatalogo\\XUnitTestProject1\\XUnitTestProject1.csproj",
+      "projectUniqueName": "C:\\Users\\Anto\\Desktop\\Tercer año\\Diseño de Sistemas\\DSI2020\\OpenShopCatalogo\\XUnitTestProject1\\XUnitTestProject1.csproj",
       "projectName": "XUnitTestProject1",
-      "projectPath": "C:\\Users\\Anto\\Desktop\\Tercer año\\Diseño de Sistemas\\MI_PROYECTO\\OpenShopCatalogo\\XUnitTestProject1\\XUnitTestProject1.csproj",
+      "projectPath": "C:\\Users\\Anto\\Desktop\\Tercer año\\Diseño de Sistemas\\DSI2020\\OpenShopCatalogo\\XUnitTestProject1\\XUnitTestProject1.csproj",
       "packagesPath": "C:\\Users\\Anto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Anto\\Desktop\\Tercer año\\Diseño de Sistemas\\MI_PROYECTO\\OpenShopCatalogo\\XUnitTestProject1\\obj\\",
+      "outputPath": "C:\\Users\\Anto\\Desktop\\Tercer año\\Diseño de Sistemas\\DSI2020\\OpenShopCatalogo\\XUnitTestProject1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5898,8 +5898,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Anto\\Desktop\\Tercer año\\Diseño de Sistemas\\MI_PROYECTO\\OpenShopCatalogo\\WindowsFormsApp1\\WindowsFormsApp1.csproj": {
-              "projectPath": "C:\\Users\\Anto\\Desktop\\Tercer año\\Diseño de Sistemas\\MI_PROYECTO\\OpenShopCatalogo\\WindowsFormsApp1\\WindowsFormsApp1.csproj"
+            "C:\\Users\\Anto\\Desktop\\Tercer año\\Diseño de Sistemas\\DSI2020\\OpenShopCatalogo\\WindowsFormsApp1\\WindowsFormsApp1.csproj": {
+              "projectPath": "C:\\Users\\Anto\\Desktop\\Tercer año\\Diseño de Sistemas\\DSI2020\\OpenShopCatalogo\\WindowsFormsApp1\\WindowsFormsApp1.csproj"
             }
           }
         }

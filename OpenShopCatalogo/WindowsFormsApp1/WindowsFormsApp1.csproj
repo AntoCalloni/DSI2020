@@ -96,12 +96,6 @@
       <DependentUpon>RegistrarVendedor.cs</DependentUpon>
     </Compile>
     <Compile Include="TipoProducto.cs" />
-    <Compile Include="TransferirListado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TransferirListado.Designer.cs">
-      <DependentUpon>TransferirListado.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vendedor.cs" />
     <EmbeddedResource Include="AgregarProducto.resx">
       <DependentUpon>AgregarProducto.cs</DependentUpon>

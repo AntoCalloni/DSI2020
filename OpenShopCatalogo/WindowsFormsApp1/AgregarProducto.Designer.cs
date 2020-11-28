@@ -225,6 +225,8 @@
             this.comboBoxMarca.Name = "comboBoxMarca";
             this.comboBoxMarca.Size = new System.Drawing.Size(307, 28);
             this.comboBoxMarca.TabIndex = 20;
+            this.comboBoxMarca.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarca_SelectedIndexChanged);
+            this.comboBoxMarca.TextChanged += new System.EventHandler(this.comboBoxMarca_TextChanged);
             // 
             // comboBoxTipoProducto
             // 
@@ -233,6 +235,8 @@
             this.comboBoxTipoProducto.Name = "comboBoxTipoProducto";
             this.comboBoxTipoProducto.Size = new System.Drawing.Size(307, 28);
             this.comboBoxTipoProducto.TabIndex = 22;
+            this.comboBoxTipoProducto.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipoProducto_SelectedIndexChanged);
+            this.comboBoxTipoProducto.TextChanged += new System.EventHandler(this.comboBoxTipoProducto_TextChanged);
             // 
             // buttonAtras
             // 

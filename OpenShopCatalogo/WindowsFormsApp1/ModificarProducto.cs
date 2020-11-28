@@ -44,12 +44,6 @@ namespace WindowsFormsApp1
         {
             buttonModificar.Enabled = false;
             float precioIngresado=0;
-            while (dataGridViewProductos.SelectedRows.Count == 0)
-            {
-                errorProviderProducto.SetError(dataGridViewProductos, "Debe seleccionar un producto");
-
-            }
-            
             bool esPrecio = float.TryParse(textBoxPrecio.Text.Trim(), out precioIngresado);
             if (esPrecio == false)
             {
@@ -72,11 +66,6 @@ namespace WindowsFormsApp1
         {
             buttonModificar.Enabled = false;
             int stockIngresado=0;
-            while (dataGridViewProductos.SelectedRows.Count == 0)
-            {
-                errorProviderProducto.SetError(dataGridViewProductos, "Debe seleccionar un producto");
-            }
-           
             bool esStock = int.TryParse(textBoxStock.Text.Trim(), out stockIngresado);
             if (esStock == false)
             {
@@ -92,32 +81,60 @@ namespace WindowsFormsApp1
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            var seleccion = dataGridViewProductos.SelectedRows[0];
-            var idSeleccionado = seleccion.Cells[0].Value.ToString();
-            var productoSeleccionado = RegistroProducto.productos.First(x => x.IdProducto.ToString() == idSeleccionado);
-            if (!string.IsNullOrWhiteSpace(textBoxStock.Text))
+            if (dataGridViewProductos.SelectedCells.Count == 0)
             {
-                int stock = 0;
-                stock = controlarTextoIngresadoStock();
-                productoSeleccionado.Stock = stock;
+                errorProviderProducto.SetError(dataGridViewProductos, "Debe seleccionar un producto");
             }
-            if (!string.IsNullOrWhiteSpace(textBoxPrecio.Text))
+            else
             {
-                float precio = 0;
-                precio = controlarTextoIngresadoPrecio();
-                productoSeleccionado.Precio = precio;
-            }
+                errorProviderProducto.SetError(dataGridViewProductos, "");
+                var idSeleccionado = dataGridViewProductos.CurrentCell.Value.ToString();
+                var productoSeleccionado = RegistroProducto.productos.Single(x => x.IdProducto.ToString() == idSeleccionado);
+                if (!string.IsNullOrWhiteSpace(textBoxStock.Text))
+                {
+                    int stock = 0;
+                    stock = controlarTextoIngresadoStock();
+                    productoSeleccionado.Stock = stock;
+                }
+                if (!string.IsNullOrWhiteSpace(textBoxPrecio.Text))
+                {
+                    float precio = 0;
+                    precio = controlarTextoIngresadoPrecio();
+                    productoSeleccionado.Precio = precio;
+                }
 
-            RellenarDataGrid();
-            dataGridViewProductos.Update();
-            dataGridViewProductos.Refresh();
+                RellenarDataGrid();
+                dataGridViewProductos.Update();
+                dataGridViewProductos.Refresh();
 
-            RegistroProducto.GuardarDatosEnJson();
+                RegistroProducto.GuardarDatosEnJson();
+
+                textBoxPrecio.Clear();
+                textBoxStock.Clear();
+
+                string message = "El producto se ha modificado correctamente!!!";
+                string caption = "Success";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
+                result = MessageBox.Show(message, caption, buttons);
+            } 
         }
 
         private void buttonAtras_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dataGridViewProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewProductos.CurrentCell.ColumnIndex != 0)
+            {
+                errorProviderProducto.SetError(dataGridViewProductos, "Debe seleccionar un id");
+            }
+            else
+            {
+                errorProviderProducto.SetError(dataGridViewProductos, "");
+            }
         }
     }
 }

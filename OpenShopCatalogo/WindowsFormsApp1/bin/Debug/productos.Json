@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "IdProducto": "13a7f6fb-8412-40e5-88a9-3f2b404aa944",
+    "Nombre": "Zapatilas",
+    "Marca": "Nike",
+    "Precio": 23.0,
+    "Descripcion": "son zapatillas",
+    "Stock": 55,
+    "Imagen": "aaa",
+    "TipoProducto": {
+      "IdTipoProducto": 0,
+      "Nombre": "indumentaria",
+      "Categoria": null
+    }
+  },
+  {
+    "IdProducto": "3cace1c8-1127-4df6-add9-17100afa6934",
+    "Nombre": "Remera",
+    "Marca": "Nike",
+    "Precio": 4.0,
+    "Descripcion": "Es remera",
+    "Stock": 55,
+    "Imagen": "url",
+    "TipoProducto": {
+      "IdTipoProducto": 0,
+      "Nombre": "indumentaria",
+      "Categoria": null
+    }
+  }
+]
